@@ -1,0 +1,22 @@
+html,
+body {
+  padding: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+  background-color: rgb(173, 173, 165);
+}
+.meal--container {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+}
+#btn {
+  padding: 15px 30px;
+  background-color: green;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 18px;
+}
