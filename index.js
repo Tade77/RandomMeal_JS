@@ -12,14 +12,26 @@ getMealBtn.addEventListener("click", () => {
 function createMeal(meal) {
   mealContainer.innerHTML = `
   <div class="meal--wrapper">
-    <div> 
-      <h1>Title: ${meal.strMeal}</h1>
-      <h3>Category: ${meal.strCategory}</h3>
-      <p>Origin: ${meal.strArea}
+  <aside class="meal--info">
+    <aside>
+      <div class="img--wrapper">
       <img class="img" src="${meal.strMealThumb}"/>
-    </div>
+      </div>
+      <div>
+      <h3>Meal Type: ${meal.strCategory}</h3>
+      <p>Origin: ${meal.strArea}
+      </div>
+    </aside>
     <div>
-       <p>Description: ${meal.strInstructions}</p>
+       <h1>Title: ${meal.strMeal}</h1>
+       <p class="desc">Description: ${meal.strInstructions}</p>
+    </div>
+    </aside>
+    <div class="video">
+      <h4>Video Recipe</h4>
+      <iframe width="560" height="315" src="https://youtube.com/embed/${meal.strYoutube.slice(
+        -11
+      )}" />
     </div>
   </div>`;
 }
