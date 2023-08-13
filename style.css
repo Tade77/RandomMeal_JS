@@ -6,8 +6,13 @@ body {
 * {
   box-sizing: border-box;
 }
-h4 {
+body {
+  overflow-x: hidden;
+}
+h4,
+h5 {
   margin-top: -10px;
+  font-size: 20px;
 }
 h3,
 p {
@@ -37,26 +42,54 @@ p {
 }
 .meal--wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   gap: 300px;
 }
-.title {
-  color: red;
-}
-.desc {
-  width: 600px;
+.meal--desc {
+  width: 500px;
   height: 70px;
   line-height: 20px;
 }
+.desc {
+  text-align: justify;
+}
 .meal--info {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   gap: 50px;
   margin-top: 30px;
 }
 .video {
   position: absolute;
-  top: 780px;
-  left: 250px;
+  top: 1000px;
+  right: 50px;
+}
+
+@media screen and (max-width: 640px) {
+  #get_meal {
+    padding: 10px 25px;
+  }
+  .meal--info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 30px;
+  }
+  .meal--desc {
+    width: 300px;
+  }
+  .img {
+    width: 300px;
+    height: 300px;
+  }
+  .video {
+    position: absolute;
+    top: 170rem;
+    left: 0px;
+  }
+  .ing--video {
+    margin-top: 760px;
+  }
 }

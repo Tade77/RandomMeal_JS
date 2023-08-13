@@ -10,29 +10,48 @@ getMealBtn.addEventListener("click", () => {
     });
 });
 function createMeal(meal) {
+  const ingredients = [];
+  for (let i = 1; i <= 20; i++) {
+    if (meal[`strIngredient${i}`]) {
+      ingredients.push(
+        `${meal[`strIngredient${i}`]} - ${meal[`strMeasure${i}`]}`
+      );
+    } else {
+      break;
+    }
+  }
+  // console.log(ingredients);
+
   mealContainer.innerHTML = `
   <div class="meal--wrapper">
-  <aside class="meal--info">
-    <aside>
-      <div class="img--wrapper">
-      <img class="img" src="${meal.strMealThumb}"/>
-      </div>
-      <div>
-      <h3>Meal Type: ${meal.strCategory}</h3>
-      <p>Origin: ${meal.strArea}
-      </div>
-    </aside>
-    <div>
-       <h1>Title: ${meal.strMeal}</h1>
-       <p class="desc">Description: ${meal.strInstructions}</p>
-    </div>
-    </aside>
-    <div class="video">
-      <h4>Video Recipe</h4>
-      <iframe width="560" height="315" src="https://youtube.com/embed/${meal.strYoutube.slice(
-        -11
-      )}" />
-    </div>
+    <aside class="meal--info">
+        <div class="img--wrapper">
+            <div>
+              <img class="img" src="${meal.strMealThumb}"/>
+              <h3>Meal Type: ${meal.strCategory}</h3>
+              <p>Origin: ${meal.strArea}
+              <p>Tags: ${meal.strTags.split(",").join(", ")}</p>
+            </div>
+            <div class="meal--desc">
+              <h1>Title: ${meal.strMeal}</h1>
+              <p class="desc">Description: ${meal.strInstructions}</p>
+            </div>
+        </div>
+        <div class="ing--video">
+            <h5>Ingredient</h5>
+            <ul>
+            ${ingredients
+              .map((ingredient) => `<li>${ingredient}</li>)`)
+              .join("")}
+            </ul>
+        </div>
+     </aside>
+            <div class="video">
+              <h4>Video Recipe</h4>
+              <iframe width="460" height="215" src="https://youtube.com/embed/${meal.strYoutube.slice(
+                -11
+              )}" /> 
+            </div>
   </div>`;
 }
 //Function
